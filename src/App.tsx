@@ -2,7 +2,7 @@ import "./App.css";
 import GridModule from "./components/GridModule";
 import { MyContext } from "./data/MyContext";
 // import {rows,setRows,cols,setcols,createGrid,grids} from "./data/dataProvider"
-import { createGrid, grids, evolveGrid } from "./data/dataProvider";
+import { createGrid, grids, evolveGrid,createDefaultGrid,countNeighbors } from "./data/dataProvider";
 
 function App() {
   // console.log(grids)
@@ -14,12 +14,19 @@ function App() {
         height: "100vh",
       }}
     >
-      <MyContext.Provider value={{ grid: grids, createGridFun: createGrid,evolveGrid }}>
+      {/* createGrid,createDefaultGrid,countNeighbors, grids,evolveGrid  */}
+      <MyContext.Provider
+        value={{ grid: grids,
+                 createGridFun: createGrid,
+                 evolveGrid,
+                 createDefaultGrid,
+                 countNeighbors,
+                }}
+      >
         <div
           style={{
-            width: "70%",
+            width: "100%",
             height: "100%",
-            border: "2px solid black",
           }}
         >
           <GridModule />
