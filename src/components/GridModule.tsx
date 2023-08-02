@@ -10,8 +10,6 @@ const GridModule = () => {
   let grid = useContext(MyContext).createGridFun(row, cols);
   let [board,setBoard]=useState(grid);
   let resetContext=useContext(MyContext).createDefaultGrid(row,cols);
-  let randomContext=useContext(MyContext).createGridFun(row,cols);
-
   
 
   let compareGrid = (gridA: number[][], gridB: number[][]) => {
@@ -27,7 +25,7 @@ const GridModule = () => {
     return true;
   };
 
-  
+
   function valueRow(rowValue: number) {
     setRows(rowValue);
     return `${rowValue}`;
@@ -37,10 +35,12 @@ const GridModule = () => {
     return `${colValue}`;
   }
   let reset=()=>{
-  // setBoard(resetContext)
+  setBoard(resetContext)
+  // grid=resetContext;
   }
   let random=()=>{
-  // setBoard(randomContext)
+  setBoard(grid)
+  // grid=randomContext;
   }
 
   // console.table(board)
@@ -66,7 +66,7 @@ const GridModule = () => {
         }}
       >
         <div>
-          {grid.map((innerArray, outerIndex) => (
+          {board.map((innerArray, outerIndex) => (
             <div
               key={outerIndex}
               style={{
@@ -194,8 +194,8 @@ const GridModule = () => {
             marginBottom:"25px"
           }}
           >
-            <button >Reset</button>
-            <button >Random</button>
+            <button onClick={reset}>Reset</button>
+            <button onClick={random}>Random</button>
           </Box>
           <Box>
             <button>Start</button>

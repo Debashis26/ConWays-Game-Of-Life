@@ -3,6 +3,8 @@ let grids: number[][] = [];
 // Generating the random grid ✔
 const createGrid = (rows: number, cols: number) => {
   let grid = [];
+  console.log("createGrid is calling....")
+
   for (let i: number = 0; i < rows; i++) {
     let row = [];
     for (let j: number = 0; j < cols; j++) {
@@ -15,6 +17,7 @@ const createGrid = (rows: number, cols: number) => {
 // create the default grid ✔
 const createDefaultGrid = (rows: number, cols: number) => {
   let grid = [];
+  console.log("reset is calling....")
   for (let i: number = 0; i < rows; i++) {
     let row = [];
     for (let j: number = 0; j < cols; j++) {
@@ -28,6 +31,8 @@ const createDefaultGrid = (rows: number, cols: number) => {
 
 function evolveGrid(prevGrid: number[][],numRows:number,numCols:number): number[][] {
   // Compute the next generation of the grid based on the rules
+  console.log("evolv is calling....")
+
   const newGrid = createGrid(numRows,numCols);
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numCols; col++) {
