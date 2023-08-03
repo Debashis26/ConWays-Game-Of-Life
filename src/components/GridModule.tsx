@@ -11,7 +11,6 @@ const GridModule = () => {
   let grid = useContext(MyContext).createGridFun(row, cols);
   let [board, setBoard] = useState(grid);
   let resetContext = useContext(MyContext).createDefaultGrid(row, cols);
-  // let newGrid = getNextGen(board, row, cols);
 
   let compareGrid = (gridA: number[][], gridB: number[][]) => {
     for (let i = 0; i < gridA.length; i++) {
@@ -53,8 +52,7 @@ const GridModule = () => {
     setBoard(updatedBoard);
   };
 
-  
-  function countNeighbors (grid: number[][], row: number, col: number): number {
+  function countNeighbors(grid: number[][], row: number, col: number): number {
     const numRows = grid.length;
     const numCols = grid[0].length;
 
@@ -75,7 +73,7 @@ const GridModule = () => {
       }
     }
     return count;
-  };
+  }
   function getNextGen(prevGrid: number[][], numRows: number, numCols: number) {
     const tempGrid = resetContext;
     for (let row = 0; row < numRows; row++) {
@@ -94,12 +92,8 @@ const GridModule = () => {
   }
 
   let start = () => {
-    // console.table(getNextGen(board,row,cols))
-    setBoard(getNextGen(board,row,cols));
-
+    setBoard(getNextGen(board, row, cols));
   };
-  
-
 
   return (
     <div
