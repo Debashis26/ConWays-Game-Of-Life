@@ -3,7 +3,7 @@ let grids: number[][] = [];
 // Generating the random grid ✔
 const createGrid = (rows: number, cols: number) => {
   let grid = [];
-  console.log("createGrid is calling....")
+  // console.log("createGrid is calling....")
 
   for (let i: number = 0; i < rows; i++) {
     let row = [];
@@ -17,7 +17,7 @@ const createGrid = (rows: number, cols: number) => {
 // create the default grid ✔
 const createDefaultGrid = (rows: number, cols: number) => {
   let grid = [];
-  console.log("reset is calling....")
+  // console.log("reset is calling....")
   for (let i: number = 0; i < rows; i++) {
     let row = [];
     for (let j: number = 0; j < cols; j++) {
@@ -31,14 +31,14 @@ const createDefaultGrid = (rows: number, cols: number) => {
 
 function evolveGrid(prevGrid: number[][],numRows:number,numCols:number): number[][] {
   // Compute the next generation of the grid based on the rules
-  console.log("evolv is calling....")
+  // console.log("evolv is calling....")
 
   const newGrid = createGrid(numRows,numCols);
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numCols; col++) {
-      const numNeighbors = countNeighbors(grids,row, col);
+      
+      const numNeighbors = countNeighbors(prevGrid,row, col);
       if (prevGrid[row][col]) {
-        console.log("checking..");
         
         // Cell is alive
         newGrid[row][col] = numNeighbors === 2 || numNeighbors === 3 ? 1 : 0;
@@ -54,6 +54,9 @@ function evolveGrid(prevGrid: number[][],numRows:number,numCols:number): number[
 function countNeighbors(grid: number[][], row: number, col: number): number {
   const numRows = grid.length;
   const numCols = grid[0].length;
+
+  console.log("length"+ grid.length+"  "+grid[0].length);
+  
 
   let count = 0;
   for (let i = -1; i <= 1; i++) {
