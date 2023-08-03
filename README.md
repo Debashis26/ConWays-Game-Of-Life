@@ -1,4 +1,4 @@
-###Conway's Game of Life
+### Conway's Game of Life
 
 *Conway's Game of Life* is a cellular automaton devised by the British mathematician **John Horton Conway** in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, and requires no further input after the initial setup. The game takes place on a grid of cells, where each cell can be in one of two possible states: alive or dead.
 
